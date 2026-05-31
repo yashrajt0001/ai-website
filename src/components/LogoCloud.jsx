@@ -41,8 +41,7 @@ export default function LogoCloud() {
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           className="font-display mx-auto max-w-2xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
         >
-          The future of work,{' '}
-          <span className="text-gradient">already shipping</span>
+          Shipping to
         </motion.h2>
       </LampContainer>
 
