@@ -7,7 +7,6 @@ const links = [
   { label: 'Features', href: '#features' },
   { label: 'How it works', href: '#how' },
   { label: 'Platform', href: '#platform' },
-  { label: 'Pricing', href: '#pricing' },
 ]
 
 export default function Navbar() {

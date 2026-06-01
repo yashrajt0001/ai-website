@@ -21,7 +21,7 @@ const logos = [
 
 function LogoItem({ C, name, h }) {
   return (
-    <div className="group flex shrink-0 items-center justify-center px-10" title={name}>
+    <div className="group flex shrink-0 transform-gpu items-center justify-center px-10 [backface-visibility:hidden]" title={name}>
       <C
         aria-label={name}
         className={`${h} w-auto opacity-80 transition-all duration-500 ease-out group-hover:scale-110 group-hover:opacity-100`}
@@ -35,20 +35,26 @@ export default function LogoCloud() {
     <section className="relative isolate bg-ink pb-16">
       {/* ── Aceternity lamp banner ──────────────────────────────── */}
       <LampContainer>
-        <motion.h2
-          initial={{ opacity: 0.5, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
-          className="font-display mx-auto max-w-2xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
-        >
-          Shipping to
-        </motion.h2>
+        <div className="translate-y-16">
+          <motion.h2
+            initial={{ opacity: 0.5, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
+            className="font-display mx-auto max-w-2xl text-center text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+          >
+            <span className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent [text-shadow:0_1px_30px_rgba(255,255,255,0.25)]">
+              Shipping
+              <br />
+              product&nbsp;to
+            </span>
+          </motion.h2>
+        </div>
       </LampContainer>
 
       {/* ── Marquee logo rail ───────────────────────────────────── */}
-      <div className="relative z-10 -mt-24 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-        <div className="flex w-max animate-marquee">
-          {[...logos, ...logos].map((l, i) => (
+      <div className="relative z-10 -mt-24 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div className="flex w-max animate-marquee will-change-transform">
+          {[...logos, ...logos, ...logos, ...logos].map((l, i) => (
             <LogoItem key={`${l.name}-${i}`} {...l} />
           ))}
         </div>

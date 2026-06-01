@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Container, Reveal, Button } from './primitives'
+import ShaderBackground from './ui/ShaderBackground'
 
 export default function CTA() {
   return (
@@ -9,8 +10,14 @@ export default function CTA() {
           <div className="relative isolate overflow-hidden rounded-4xl border border-white/10 px-6 py-16 text-center sm:px-12 sm:py-24">
             {/* gradient backdrop */}
             <div className="pointer-events-none absolute inset-0 z-0">
-              <div className="absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 glow-conic opacity-25 blur-[90px]" />
-              <div className="absolute inset-0 bg-ink/40" />
+              {/* animated mesh-gradient shader — masked + veiled so it melts into the band */}
+              <ShaderBackground
+                opacity={0.75}
+                speed={1.3}
+                className="[mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+              />
+              <div className="absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 glow-conic opacity-20 blur-[90px]" />
+              <div className="absolute inset-0 bg-ink/35" />
               <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
             </div>
 
